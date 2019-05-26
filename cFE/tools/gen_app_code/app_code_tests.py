@@ -92,9 +92,14 @@ clean::
 	-rm -f *.o
 	-rm -f *.bin
 
+#ut_%s.bin: ut_%s.c
+#	gcc $(LOCAL_COPTS) $(INC_PATH) $(COPTS) $(DEBUG_OPTS) \\
+#            -DOS_DEBUG_LEVEL=$(DEBUG_LEVEL) -m32 $^ \\
+#            -o ut_%s.bin
+
 ut_%s.bin: ut_%s.c
-	gcc $(LOCAL_COPTS) $(INC_PATH) $(COPTS) $(DEBUG_OPTS) \\
-            -DOS_DEBUG_LEVEL=$(DEBUG_LEVEL) -m32 $^ \\
+        gcc $(LOCAL_COPTS) $(INC_PATH) $(COPTS) $(DEBUG_OPTS) \\
+            -DOS_DEBUG_LEVEL=$(DEBUG_LEVEL) $^ \\
             -o ut_%s.bin
 
 #######################################################################################
