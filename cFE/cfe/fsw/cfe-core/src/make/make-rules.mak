@@ -33,8 +33,8 @@ depend: $(SOURCES)
 ## Subsystem Link rule
 ## 
 $(TARGET): $(OBJS)
-	$(LINKER) -o $(TARGET) -r $(OBJS)
-
+#	$(LINKER) -o $(TARGET) -r $(OBJS)
+	ld -o $(TARGET) -r $(OBJS)
 ##
 ## Make clean rule
 ##

@@ -136,7 +136,7 @@ void TO_output_openflow_packet(char *msg_to_output)
     CFE_SB_SendMsg((CFE_SB_Msg_t *) &openflow_pkt);
 }
 
-void Forward_OpenFlow_Messages()
+void Forward_OpenFlow_Messages(void)
 {
 	char msg_buf[TO_OF_MSG_SIZE] = {0};
 	int bytes_read = 0;
