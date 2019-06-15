@@ -1,0 +1,279 @@
+{
+    "application": {
+        "dpctl": "",
+        "ipBase": "10.0.0.0/8",
+        "netflow": {
+            "nflowAddId": "0",
+            "nflowTarget": "",
+            "nflowTimeout": "600"
+        },
+        "openFlowVersions": {
+            "ovsOf10": "1",
+            "ovsOf11": "0",
+            "ovsOf12": "0",
+            "ovsOf13": "0"
+        },
+        "sflow": {
+            "sflowHeader": "128",
+            "sflowPolling": "30",
+            "sflowSampling": "400",
+            "sflowTarget": ""
+        },
+        "startCLI": "1",
+        "switchType": "ovs",
+        "terminalType": "xterm"
+    },
+    "controllers": [
+        {
+            "opts": {
+                "controllerProtocol": "tcp",
+                "controllerType": "remote",
+                "hostname": "NOC",
+                "remoteIP": "127.0.0.1",
+                "remotePort": 6633
+            },
+            "x": "852.0",
+            "y": "738.0"
+        }
+    ],
+    "hosts": [
+        {
+            "number": "5",
+            "opts": {
+                "hostname": "GS1",
+                "nodeNum": 5,
+                "sched": "host"
+            },
+            "x": "835.0",
+            "y": "469.0"
+        },
+        {
+            "number": "1",
+            "opts": {
+                "hostname": "SC",
+                "nodeNum": 1,
+                "sched": "host"
+            },
+            "x": "890.0",
+            "y": "173.0"
+        },
+        {
+            "number": "7",
+            "opts": {
+                "hostname": "CN",
+                "nodeNum": 7,
+                "sched": "host"
+            },
+            "x": "100.0",
+            "y": "217.0"
+        },
+        {
+            "number": "6",
+            "opts": {
+                "hostname": "GS2",
+                "nodeNum": 6,
+                "sched": "host"
+            },
+            "x": "201.0",
+            "y": "490.0"
+        },
+        {
+            "number": "4",
+            "opts": {
+                "hostname": "GSOC",
+                "nodeNum": 4,
+                "sched": "host"
+            },
+            "x": "1616.0",
+            "y": "624.0"
+        },
+        {
+            "number": "2",
+            "opts": {
+                "hostname": "GMOC",
+                "nodeNum": 2,
+                "sched": "host"
+            },
+            "x": "1614.0",
+            "y": "481.0"
+        }
+    ],
+    "links": [
+        {
+            "dest": "GS1Switch",
+            "opts": {},
+            "src": "s7"
+        },
+        {
+            "dest": "GS2Switch",
+            "opts": {},
+            "src": "GS2"
+        },
+        {
+            "dest": "GS1Switch",
+            "opts": {},
+            "src": "GS2Switch"
+        },
+        {
+            "dest": "GSOCSwitch",
+            "opts": {},
+            "src": "GS1Switch"
+        },
+        {
+            "dest": "GMOCSwitch",
+            "opts": {},
+            "src": "GS1Switch"
+        },
+        {
+            "dest": "CN",
+            "opts": {},
+            "src": "CNSwitch"
+        },
+        {
+            "dest": "GS2Switch",
+            "opts": {},
+            "src": "CNSwitch"
+        },
+        {
+            "dest": "GMOCSwitch",
+            "opts": {},
+            "src": "GMOC"
+        },
+        {
+            "dest": "GSOCSwitch",
+            "opts": {},
+            "src": "GSOC"
+        },
+        {
+            "dest": "GS1Switch",
+            "opts": {},
+            "src": "GS1"
+        },
+        {
+            "dest": "SC",
+            "opts": {},
+            "src": "s7"
+        },
+        {
+            "dest": "SCSwitch",
+            "opts": {},
+            "src": "s7"
+        }
+    ],
+    "switches": [
+        {
+            "number": "3",
+            "opts": {
+                "controllers": [
+                    "NOC"
+                ],
+                "dpid": "00000003",
+                "hostname": "GSOCSwitch",
+                "netflow": "0",
+                "nodeNum": 3,
+                "sflow": "0",
+                "switchIP": "",
+                "switchType": "default"
+            },
+            "x": "1489.0",
+            "y": "627.0"
+        },
+        {
+            "number": "6",
+            "opts": {
+                "controllers": [
+                    "NOC"
+                ],
+                "dpid": "00000005",
+                "hostname": "CNSwitch",
+                "netflow": "0",
+                "nodeNum": 6,
+                "sflow": "0",
+                "switchIP": "",
+                "switchType": "default"
+            },
+            "x": "99.0",
+            "y": "297.0"
+        },
+        {
+            "number": "7",
+            "opts": {
+                "controllers": [],
+                "hostname": "s7",
+                "nodeNum": 7,
+                "switchType": "legacySwitch"
+            },
+            "x": "984.0",
+            "y": "174.0"
+        },
+        {
+            "number": "5",
+            "opts": {
+                "controllers": [
+                    "NOC"
+                ],
+                "dpid": "00000002",
+                "hostname": "GS2Switch",
+                "netflow": "0",
+                "nodeNum": 5,
+                "sflow": "0",
+                "switchIP": "",
+                "switchType": "default"
+            },
+            "x": "201.0",
+            "y": "566.0"
+        },
+        {
+            "number": "2",
+            "opts": {
+                "controllers": [
+                    "NOC"
+                ],
+                "dpid": "00000004",
+                "hostname": "GMOCSwitch",
+                "netflow": "0",
+                "nodeNum": 2,
+                "sflow": "0",
+                "switchIP": "",
+                "switchType": "default"
+            },
+            "x": "1486.0",
+            "y": "482.0"
+        },
+        {
+            "number": "4",
+            "opts": {
+                "controllers": [
+                    "NOC"
+                ],
+                "dpid": "00000001",
+                "hostname": "GS1Switch",
+                "netflow": "0",
+                "nodeNum": 4,
+                "sflow": "0",
+                "switchIP": "",
+                "switchType": "default"
+            },
+            "x": "856.0",
+            "y": "558.0"
+        },
+        {
+            "number": "1",
+            "opts": {
+                "controllers": [
+                    "NOC"
+                ],
+                "dpid": "00000006",
+                "hostname": "SCSwitch",
+                "netflow": "0",
+                "nodeNum": 1,
+                "sflow": "0",
+                "switchIP": "",
+                "switchType": "default"
+            },
+            "x": "946.0",
+            "y": "79.0"
+        }
+    ],
+    "version": "2"
+}
