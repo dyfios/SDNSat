@@ -1,0 +1,51 @@
+Courtesy of http://fosshelp.blogspot.com/2014/10/add-eth0-wlan0-openvswitch-bridge.html
+
+
+mininet@mininet-vm:~$ ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 08:00:27:76:7c:07  
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:200 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:217 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:19677 (19.6 KB)  TX bytes:20519 (20.5 KB)
+
+
+
+mininet@mininet-vm:~$ route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.2.2        0.0.0.0         UG    0      0        0 eth0
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 eth0
+
+
+
+mininet@mininet-vm:~$ sudo ovs-vsctl add-br br-int
+
+
+
+mininet@mininet-vm:~$ sudo ovs-vsctl add-port br-int eth0
+
+
+
+mininet@mininet-vm:~$ sudo ifconfig eth0 0
+
+
+
+mininet@mininet-vm:~$ sudo ifconfig br-int 10.0.2.15 netmask 255.255.255.0
+
+
+
+mininet@mininet-vm:~$ sudo route add default gw 10.0.2.2 br-int
+
+
+
+mininet@mininet-vm:~$ route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.2.2        0.0.0.0         UG    0      0        0 br-int
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 br-int
+
+
+On the host: enter sudo route add default gw 10.0.2.2 <eth0 port>

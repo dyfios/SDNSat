@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PHY_IFACE=eth0
+BRIDGING_SWITCH=GS1Switch
+HOST_IP=10.0.2.15
+HOST_GW=10.0.2.2
+HOST_NETMASK=255.255.255.0
+
+ovs-vsctl add-port $BRIDGING_SWITCH $PHY_IFACE
+ifconfig $PHY_IFACE 0
+ifconfig $BRIDGING_SWITCH $HOST_IP netmask $HOST_NETMASK
+route add default gw $HOST_GW $BRIDGING_SWITCH
