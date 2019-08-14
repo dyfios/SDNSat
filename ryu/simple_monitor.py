@@ -136,9 +136,7 @@ class SimpleMonitor10(simple_switch.SimpleSwitch):
                             if self.mac_to_port[ev.msg.datapath.id][dp] == stat.port_no:
                                 self.logger.info('equal')
                                 if dp not in self.macstoblock:
-                                    self.logger.info('dafuq')
                                     self.macstoblock.append(dp)
-                                    self.logger.info('not in')
                                     self.logger.info('s %s', self.macstoblock)
                         instructions = []
                         
